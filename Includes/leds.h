@@ -15,5 +15,6 @@
 #define LOW false
 
 bool setLed (unsigned short led, bool state);
+bool toggleLed(unsigned short led);
 
 #endif /* INCLUDES_LEDS_H_ */

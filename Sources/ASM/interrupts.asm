@@ -3,7 +3,6 @@
 ;;;;;;;; Les directives ;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     .def _enableInterrupts
-    .def _setExternalInterrupt
 
     .data
 
@@ -16,7 +15,10 @@
 _enableInterrupts
     .asmfunc
 
-
+	MVC IER, B1
+ 	MVK 0x12, A1
+	OR 	A1, B1, B1 	; NMIE and INT4
+	MVC B1, IER
 
     MVC CSR, B0     ; Get CSR
     OR 1, B0, B0    ; Get ready to clear GIE
@@ -26,13 +28,3 @@ _enableInterrupts
     NOP 5
 
     .endasmfunc
-
-
-_setExternalInterrupt
-	.asmfunc
-
-
-
-	B B3
-	NOP 5
-	.endasmfunc

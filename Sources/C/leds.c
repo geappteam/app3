@@ -17,3 +17,12 @@ bool setLed (unsigned short led, bool state){
 
     return true;
 }
+
+bool toggleLed(unsigned short led){
+    if (led > 3)
+            return false;
+
+    USER_REG ^= 1<<led;
+
+    return true;
+}

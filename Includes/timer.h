@@ -15,6 +15,6 @@
 
 void loop_waitSeconds(unsigned int delay);
 
-void configAndStartTimer1(void);
+void configAndStartTimer1(double);
 
 #endif /* INCLUDES_TIMER_H_ */

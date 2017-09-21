@@ -17,13 +17,13 @@ void loop_waitSeconds(unsigned int delay){
         --i;
 }
 
-void configAndStartTimer1(void){
+void configAndStartTimer1(double targetFrequency){
 
     // Put timer on hold
     CTL1 &= ~(1 << HLD);
 
     // Set the desired timer frequency (10khz)
-    PRD1 = (CLK_SRC / 4) / (2 * TARGET_FRQ);
+    PRD1 = (unsigned int)((CLK_SRC / 4) / (2 * targetFrequency));
 
 
     // CLT Settings:

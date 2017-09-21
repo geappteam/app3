@@ -4,6 +4,8 @@
 
 #include "leds.h"
 #include "timer.h"
+#include "test.h"
+
 
 main(void){
 
@@ -15,7 +17,11 @@ main(void){
     setLed(3, LOW);
 
 
-    configAndStartTimer1();
+    configAndStartTimer1(26);
 
-    while(1);
+    testNo3Labo();
+
+    while(1){
+
+    }
 }

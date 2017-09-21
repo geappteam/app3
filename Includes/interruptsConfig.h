@@ -5,8 +5,11 @@
  *      Author: para2709
  */
 
-#ifndef INCLUDES_INTERRUPTS_H_
-#define INCLUDES_INTERRUPTS_H_
+#ifndef INCLUDES_INTERRUPTSCONFIG_H_
+#define INCLUDES_INTERRUPTSCONFIG_H_
+
+#include <stdbool.h>
+#include "addresses.h"
 
 typedef enum {RISING, FALLING, CHANGE, DISABLED} interOpt;
 
@@ -14,4 +17,4 @@ void enableInterrupts();
 
 bool setExternalInterrupt(unsigned short extIntPin, interOpt setting);
 
-#endif /* INCLUDES_INTERRUPTS_H_ */
+#endif /* INCLUDES_INTERRUPTSCONFIG_H_ */

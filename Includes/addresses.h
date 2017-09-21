@@ -16,5 +16,8 @@
 
 #define EXT_INT4_EXT_INT7 *(unsigned int*) 0x019C0008 //Ref. TMS320C6713B FLOATING-POINT DIGITAL SIGNAL PROCESSOR, p.19 of 154 , table 6, PDF
 
+#define GPEN        *(unsigned int*) 0x01B00000
+#define GPDIR       *(unsigned int*) 0x01B00004
+#define GPPOL       *(unsigned int*) 0x01B00024
 
 #endif /* INCLUDES_ADDRESSES_H_ */
