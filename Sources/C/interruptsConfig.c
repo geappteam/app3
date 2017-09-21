@@ -5,7 +5,8 @@
  *      Author: dene2303
  */
 
-#include <interruptsConfig.h>
+#include "interruptsConfig.h"
+#include "timer.h"
 
 bool setExternalInterrupt(unsigned short extIntPin, interOpt setting){
     // Checking if input pin is in range
@@ -17,16 +18,32 @@ bool setExternalInterrupt(unsigned short extIntPin, interOpt setting){
         return false;
     }
     else if (setting == RISING){
+        setInterrupt(extIntPin, ON);
         GPEN |= 1 << extIntPin;
         GPDIR &= ~( 1 << extIntPin );
         GPPOL &= ~( 1 << extIntPin );
     }
     else if (setting == FALLING){
+        setInterrupt(extIntPin, ON);
         GPEN |= 1 << extIntPin;
         GPDIR &= ~( 1 << extIntPin );
         GPPOL |=  1 << extIntPin;
     }
     else return false;
+
+    return true;
+}
+
+bool enableTimerInterrupt(unsigned int timer){
+
+    setInterrupt(14 + timer, ON);
+
+    return true;
+}
+
+bool disableTimerInterrupt(unsigned int timer){
+
+    setInterrupt(14 + timer, OFF);
 
     return true;
 }

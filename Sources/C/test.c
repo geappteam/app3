@@ -6,8 +6,8 @@
  */
 #include <interruptsConfig.h>
 #include "test.h"
+#include "timer.h"
 
-bool testNo4LaboStarted = false;
 
 bool testNo3Labo(){
 
@@ -18,9 +18,11 @@ bool testNo3Labo(){
 
 bool testNo4Labo(){
 
+    configAndStartTimer1(500 * 8);
     enableInterrupts();
     setExternalInterrupt(5, RISING);
 
+    //MUXH = 0b100000100000010110001000011;
     //if(testNo4LaboStarted)
 
 

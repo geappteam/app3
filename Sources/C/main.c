@@ -9,17 +9,12 @@
 
 main(void){
 
-    setLed(2, HIGH);
-    setLed(3, HIGH);
-
-    loop_waitSeconds(5);
-
+    setLed(0, LOW);
+    setLed(1, LOW);
+    setLed(2, LOW);
     setLed(3, LOW);
 
-
-    configAndStartTimer1(26);
-
-    testNo3Labo();
+    testNo4Labo();
 
     while(1){
 

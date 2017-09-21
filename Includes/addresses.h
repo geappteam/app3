@@ -20,4 +20,7 @@
 #define GPDIR       *(unsigned int*) 0x01B00004
 #define GPPOL       *(unsigned int*) 0x01B00024
 
+#define MUXH        *(unsigned int*) 0x019C0000
+#define MUXL        *(unsigned int*) 0x019C0004
+
 #endif /* INCLUDES_ADDRESSES_H_ */
