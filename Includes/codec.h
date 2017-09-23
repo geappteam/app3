@@ -17,5 +17,7 @@ typedef enum{LEFT, RIGHT, ALL} audioChannel;
 
 void startCodec();
 void dacOutput(double voltage, audioChannel channel);
+int setSampleFrequencyKHz(unsigned short freq);
+unsigned short getSampleFrequencyKHz();
 
 #endif /* INCLUDES_CODEC_H_ */

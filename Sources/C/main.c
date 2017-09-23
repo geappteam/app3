@@ -29,7 +29,7 @@ main(void){
 
             ++timerCounter1;
             double output = sin(SIN_FREQUENCY * (double)(timerCounter1) / (getSampleFrequencyKHz()* 1000.0) * 2 * PI);
-            dacOutput(output, ALL);
+            dacOutput(output * 0.2, ALL);
         }
     }
 }
