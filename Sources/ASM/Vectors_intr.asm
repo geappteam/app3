@@ -15,7 +15,7 @@
    .global _vector12  
    .global _vector13   
    .global _vector14
-   .global _vector15
+   .global _timerIsr1
 
    .ref _c_int00				;entry address
 
@@ -52,4 +52,4 @@ _vector11:  VEC_ENTRY _codec_int  	;ISR address
 _vector12:  VEC_ENTRY _vec_dummy
 _vector13:  VEC_ENTRY _vec_dummy
 _vector14:  VEC_ENTRY _vec_dummy
-_vector15:  VEC_ENTRY _vec_dummy
+_vector15:  VEC_ENTRY _timerIsr1

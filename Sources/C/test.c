@@ -4,7 +4,7 @@
  *  Created on: 21 sept. 2017
  *      Author: dene2303
  */
-#include <interruptsConfig.h>
+#include <interrupts.h>
 #include "test.h"
 #include "timer.h"
 

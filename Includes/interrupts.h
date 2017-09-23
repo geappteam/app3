@@ -5,8 +5,8 @@
  *      Author: para2709
  */
 
-#ifndef INCLUDES_INTERRUPTSCONFIG_H_
-#define INCLUDES_INTERRUPTSCONFIG_H_
+#ifndef INCLUDES_INTERRUPTS_H_
+#define INCLUDES_INTERRUPTS_H_
 
 #include <stdbool.h>
 #include "addresses.h"
@@ -24,4 +24,4 @@ bool setExternalInterrupt(unsigned short extIntPin, interOpt setting);
 bool enableTimerInterrupt(unsigned int timer);
 bool disableTimerInterrupt(unsigned int timer);
 
-#endif /* INCLUDES_INTERRUPTSCONFIG_H_ */
+#endif /* INCLUDES_INTERRUPTS_H_ */

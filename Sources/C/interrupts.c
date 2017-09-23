@@ -5,7 +5,7 @@
  *      Author: dene2303
  */
 
-#include "interruptsConfig.h"
+#include <interrupts.h>
 #include "timer.h"
 
 bool setExternalInterrupt(unsigned short extIntPin, interOpt setting){
