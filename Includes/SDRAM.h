@@ -5,8 +5,8 @@
  *      Author: para2709
  */
 
-#ifndef INCLUDES_DIGITALSOUNDRECORDER_H_
-#define INCLUDES_DIGITALSOUNDRECORDER_H_
+#ifndef INCLUDES_SDRAM_H_
+#define INCLUDES_SDRAM_H_
 
 #include <stdbool.h>
 #include "addresses.h"
@@ -14,9 +14,9 @@
 //SDRAM EMIF CE0 address iterator
 static unsigned int* sdramAddressIt = &SDRAM_BEGIN; //TODO: Verify if it needs to be static
 
-void setDigitalSoundData(short digitalSoundData);
+void setSDRAMData(short digitalSoundData);
 
-short getDigitalSoundData();
+short getSDRAMData();
 
 //bool clearSDRAM();
 
@@ -26,8 +26,8 @@ void resetSDRAMIterator();
 
 void iterateSDRAM();
 
-void processDigitalSoundRecorder(short digitalSoundData);
+void processSDRAM(short digitalSoundData);
 
 //void processDigitalSoundPlayer(short digitalSoundData);
 
-#endif /* INCLUDES_DIGITALSOUNDRECORDER_H_ */
+#endif /* INCLUDES_SDRAM_H_ */

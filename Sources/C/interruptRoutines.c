@@ -40,3 +40,4 @@ interrupt void codec_int(){
 interrupt void timerIsr1(){
     timerFlag1 = true;
 }
+

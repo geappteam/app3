@@ -7,6 +7,7 @@
 #include <interrupts.h>
 #include "test.h"
 #include "timer.h"
+#include "codec.h"
 
 
 bool testNo3Labo(){
@@ -40,7 +41,7 @@ void testSDRAM(){
     while(it <= it_max){
         ++digitalSoundData;
 
-        processDigitalSoundRecorder(digitalSoundData);
+        processSDRAM(digitalSoundData);
 
         if(digitalSoundData == 0x7FFF)
             digitalSoundData = 0x0;
@@ -54,8 +55,20 @@ void testSDRAM(){
     it = (unsigned int)&SDRAM_BEGIN;
 
     while(it <= it_max){
-        printf("\nValue : %d\tAddress : %x\n",getDigitalSoundData(), it);
+        printf("\nValue : %d\tAddress : %x\n",getSDRAMData(), it);
 
         ++it;
     }
+}
+
+void testIntegrationADCSDRAMDAC(){
+
+//    resetSDRAMIterator();
+//
+//    startCodec();
+//
+//    dacOutput(voltage, audioChannel channel);
+//    getSDRAMData();
+
+
 }

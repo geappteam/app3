@@ -5,28 +5,28 @@
  *      Author: para2709
  */
 
-#include <digitalSoundRecorder.h>
+#include <SDRAM.h>
 
-void setDigitalSoundData(short digitalSoundData){
+void setSDRAMData(short digitalData){
     if(isEndOfSDRAM()){
         resetSDRAMIterator();
         return;
     }
 
-    *sdramAddressIt = digitalSoundData;
+    *sdramAddressIt = digitalData;
 }
 
-short getDigitalSoundData(){
+short getSDRAMData(){
     if(isEndOfSDRAM()){
         resetSDRAMIterator();
         return 0;
     }
 
-    short digitalSoundData = *sdramAddressIt;
+    short digitalData = *sdramAddressIt;
 
     iterateSDRAM();
 
-    return digitalSoundData;
+    return digitalData;
 }
 
 bool isEndOfSDRAM(){
@@ -44,8 +44,8 @@ void iterateSDRAM(){
     ++sdramAddressIt;
 }
 
-void processDigitalSoundRecorder(short digitalSoundData){
-    setDigitalSoundData(digitalSoundData);
+void processSDRAM(short digitalData){
+    setSDRAMData(digitalData);
     iterateSDRAM();
 }
 

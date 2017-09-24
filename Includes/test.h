@@ -10,15 +10,15 @@
 
 #include <stdbool.h>
 #include <stdio.h>
-#include "digitalSoundRecorder.h"
+#include "SDRAM.h"
 
 //General tests (Miscellaneous)
 bool testNo3Labo();
 bool testNo4Labo();
-//APP features unit test
 
+//APP features unit test
 void testSDRAM();
 
 //APP features integration test
-
+void testIntegrationADCSDRAMDAC();
 #endif /* INCLUDES_TEST_H_ */

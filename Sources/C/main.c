@@ -9,6 +9,7 @@
 #include <stdbool.h>
 #include <math.h>
 #include "test.h"
+#include "soundRecorder.h"
 
 volatile bool timerFlag1;
 volatile bool codecFlag = false;
@@ -18,6 +19,5 @@ double SIN_FREQUENCY = 500.0;
 const double PI = 3.14159265;
 
 main(void){
-
-   //testSDRAM();
+    process();
 }
