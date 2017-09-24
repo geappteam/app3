@@ -23,4 +23,7 @@
 #define MUXH        *(unsigned int*) 0x019C0000
 #define MUXL        *(unsigned int*) 0x019C0004
 
+#define CE3         *(unsigned int*) 0xB0000000
+#define TLC1550     *(unsigned int*) 0xB0000400
+
 #endif /* INCLUDES_ADDRESSES_H_ */
