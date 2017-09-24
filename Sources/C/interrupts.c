@@ -36,6 +36,7 @@ bool setExternalInterrupt(unsigned short extIntPin, interOpt setting){
 
 bool enableTimerInterrupt(unsigned int timer){
 
+    enableInterrupts();
     setInterrupt(14 + timer, ON);
 
     return true;

@@ -9,10 +9,15 @@
 
 #define USER_REG    *(unsigned int*) 0x90080000
 
+// Timer config registers
+#define CTL0        *(unsigned int*) 0x01940000
 #define CTL1        *(unsigned int*) 0x01980000
 #define HLD         7
-
+// Timer period registers
+#define PRD0        *(unsigned int*) 0x01940004
 #define PRD1        *(unsigned int*) 0x01980004
+
+
 
 #define EXT_INT4_EXT_INT7 *(unsigned int*) 0x019C0008 //Ref. TMS320C6713B FLOATING-POINT DIGITAL SIGNAL PROCESSOR, p.19 of 154 , table 6, PDF
 
@@ -27,7 +32,17 @@
 #define SDRAM_BEGIN        *(unsigned int*) 0x80000000
 #define SDRAM_END        *(unsigned int*) 0x8FFFFFFF
 
+// EMIF registers for ADC
+#define CECTL3      *(unsigned int*) 0x01800014
+#define WRSETUP     28
+#define WRSTRB      22
+#define WRHLD       20
+#define RDSETUP     16
+#define RDSTRB      8
+#define MTYPE       4
+#define RDHLD       0
 #define CE3         *(unsigned int*) 0xB0000000
 #define TLC1550     *(unsigned int*) 0xB0000400
+
 
 #endif /* INCLUDES_ADDRESSES_H_ */

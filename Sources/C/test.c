@@ -19,7 +19,7 @@ bool testNo3Labo(){
 
 bool testNo4Labo(){
 
-    configAndStartTimer1(500 * 8);
+    configAndStartTimer(1, 500 * 8);
     enableInterrupts();
     setExternalInterrupt(5, RISING);
 
@@ -69,6 +69,16 @@ void testIntegrationADCSDRAMDAC(){
 //
 //    dacOutput(voltage, audioChannel channel);
 //    getSDRAMData();
+}
+
+void testADC(){
+
+    enableInterrupts();
+    enableTimerInterrupt(1);
+    configAndStartTimer(1, 1.0);
+
+    while (true){
 
 
+    }
 }

@@ -4,8 +4,8 @@
    .global _vector1
    .global _vector2
    .global _vector3
-   .global _handlePin4		; Int4 routine
-   .global _handlePin5		; Int 5 routine (DIP#3)
+   .global _endOfConv		; EOF ADC finished read
+   .global _vector5
    .global _vector6
    .global _vector7
    .global _vector8
@@ -41,8 +41,8 @@ _vector0:   VEC_ENTRY _c_int00   	;RESET
 _vector1:   VEC_ENTRY _vec_dummy  	;NMI
 _vector2:   VEC_ENTRY _vec_dummy  	;RSVD
 _vector3:   VEC_ENTRY _vec_dummy
-_vector4:   VEC_ENTRY _handlePin4
-_vector5:   VEC_ENTRY _handlePin5
+_vector4:   VEC_ENTRY _endOfConv
+_vector5:   VEC_ENTRY _vec_dummy
 _vector6:   VEC_ENTRY _vec_dummy
 _vector7:   VEC_ENTRY _vec_dummy
 _vector8:   VEC_ENTRY _vec_dummy
