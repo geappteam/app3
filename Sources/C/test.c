@@ -28,3 +28,34 @@ bool testNo4Labo(){
 
     return true;
 }
+
+void testSDRAM(){
+
+    unsigned int it = (unsigned int)&SDRAM_BEGIN;
+    unsigned int it_max = it+0x80000;
+
+    short digitalSoundData = 0x0;
+
+    //TESTING WRITING
+    while(it <= it_max){
+        ++digitalSoundData;
+
+        processDigitalSoundRecorder(digitalSoundData);
+
+        if(digitalSoundData == 0x7FFF)
+            digitalSoundData = 0x0;
+
+        ++it;
+    }
+
+    //TESTING READING
+    resetSDRAMIterator();
+
+    it = (unsigned int)&SDRAM_BEGIN;
+
+    while(it <= it_max){
+        printf("\nValue : %d\tAddress : %x\n",getDigitalSoundData(), it);
+
+        ++it;
+    }
+}

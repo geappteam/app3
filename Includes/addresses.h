@@ -23,4 +23,8 @@
 #define MUXH        *(unsigned int*) 0x019C0000
 #define MUXL        *(unsigned int*) 0x019C0004
 
+// SDRAM memory address corresponding to 0x80000000 to 0x8FFFFFFF (which is entirely the EMIF CE0 (according to DSK datasheet Ref. p. 13 of 52 PDF)
+#define SDRAM_BEGIN        *(unsigned int*) 0x80000000
+#define SDRAM_END        *(unsigned int*) 0x8FFFFFFF
+
 #endif /* INCLUDES_ADDRESSES_H_ */

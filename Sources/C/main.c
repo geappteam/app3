@@ -8,6 +8,7 @@
 #include "codec.h"
 #include <stdbool.h>
 #include <math.h>
+#include "test.h"
 
 volatile bool timerFlag1;
 volatile bool codecFlag = false;
@@ -18,18 +19,22 @@ const double PI = 3.14159265;
 
 main(void){
 
-    // Start codec
-    startCodec();
+//    // Start codec
+//    startCodec();
+//
+//    while(1){
+//
+//        if (codecFlag)
+//        {
+//            codecFlag = false;
+//
+//            ++timerCounter1;
+//            double output = sin(SIN_FREQUENCY * (double)(timerCounter1) / (getSampleFrequencyKHz()* 1000.0) * 2 * PI);
+//            dacOutput(output, ALL);
+//        }
+//    }
 
-    while(1){
+    testSDRAM();
 
-        if (codecFlag)
-        {
-            codecFlag = false;
 
-            ++timerCounter1;
-            double output = sin(SIN_FREQUENCY * (double)(timerCounter1) / (getSampleFrequencyKHz()* 1000.0) * 2 * PI);
-            dacOutput(output, ALL);
-        }
-    }
 }
