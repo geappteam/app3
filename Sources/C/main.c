@@ -10,8 +10,9 @@
 #include <math.h>
 #include "test.h"
 
-volatile bool timerFlag1;
+volatile bool timerFlag1 = false;
 volatile bool codecFlag = false;
+volatile bool eocFlag = false;
 unsigned long long timerCounter1 = 0;
 
 double SIN_FREQUENCY = 500.0;
@@ -20,4 +21,5 @@ const double PI = 3.14159265;
 main(void){
 
    //testSDRAM();
+   testADC();
 }

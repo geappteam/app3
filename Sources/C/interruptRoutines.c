@@ -16,25 +16,15 @@ bool testNo4LaboStarted = false;
 
 extern volatile bool timerFlag1;
 extern volatile bool codecFlag;
+extern volatile bool eocFlag;
 
-interrupt void handlePin4(){
-    toggleLed(0);
-    toggleLed(1);
-    toggleLed(2);
-    toggleLed(3);
-}
-
-interrupt void handlePin5(){
-    if(testNo4LaboStarted)
-        return;
-
-    testNo4LaboStarted = true;
-    setLed(3, HIGH);
-    enableTimerInterrupt(1);
-}
 
 interrupt void codec_int(){
     codecFlag = true;
+}
+
+interrupt void endOfConv(){
+    eocFlag = true;
 }
 
 interrupt void timerIsr1(){

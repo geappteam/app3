@@ -18,6 +18,7 @@ bool testNo4Labo();
 //APP features unit test
 
 void testSDRAM();
+void testADC();
 
 //APP features integration test
 
