@@ -27,4 +27,7 @@
 #define SDRAM_BEGIN        *(unsigned int*) 0x80000000
 #define SDRAM_END        *(unsigned int*) 0x8FFFFFFF
 
+#define CE3         *(unsigned int*) 0xB0000000
+#define TLC1550     *(unsigned int*) 0xB0000400
+
 #endif /* INCLUDES_ADDRESSES_H_ */

@@ -19,22 +19,5 @@ const double PI = 3.14159265;
 
 main(void){
 
-//    // Start codec
-//    startCodec();
-//
-//    while(1){
-//
-//        if (codecFlag)
-//        {
-//            codecFlag = false;
-//
-//            ++timerCounter1;
-//            double output = sin(SIN_FREQUENCY * (double)(timerCounter1) / (getSampleFrequencyKHz()* 1000.0) * 2 * PI);
-//            dacOutput(output, ALL);
-//        }
-//    }
-
-    testSDRAM();
-
-
+   //testSDRAM();
 }
