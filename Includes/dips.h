@@ -10,6 +10,6 @@
 #ifndef INCLUDES_DIPS_H_
 #define INCLUDES_DIPS_H_
 
-void readDIPS();
+int readDIPS();
 
 #endif /* INCLUDES_DIPS_H_ */

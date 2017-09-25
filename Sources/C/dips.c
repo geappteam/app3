@@ -7,22 +7,17 @@
 
 #include "dips.h"
 
-void readDIPS(){
+int readDIPS(){
 
-    bool dip0 = USER_REG & 0x10;
-    bool dip1 = USER_REG & 0x20;
+    //Check if RECORD
+    if(USER_REG & 0x10)
+        return 0;
 
-    //DIP0 - RECORD
-    if(dip0){
-        toggleLed(0);
-        toggleLed(1);
-    }
+    //Check if PLAY
+    if(USER_REG & 0x20)
+        return 1;
 
-    //DIP1 - PLAY
-    if(dip1){
-        toggleLed(2);
-        toggleLed(3);
-    }
+    return -1;
 }
 
 
