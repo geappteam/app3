@@ -7,6 +7,11 @@
 #include <interrupts.h>
 #include "test.h"
 #include "timer.h"
+#include "emifADC.h"
+
+extern volatile bool timer1Flag;
+extern volatile bool codecFlag;
+extern volatile bool eocFlag;
 
 
 bool testNo3Labo(){
@@ -64,10 +69,27 @@ void testADC(){
 
     enableInterrupts();
     enableTimerInterrupt(1);
+    setExternalInterrupt(4, FALLING);
     configAndStartTimer(1, 1.0);
+    setupADC();
+
 
     while (true){
 
+        // Timer 1
+        if (timer1Flag){
+            timer1Flag = false;
+            printf("\nStart conversion ...\n");
 
+            startADConv();
+        }
+
+        // End of conversion
+        if (eocFlag){
+            eocFlag = false;
+
+            int value = readADCvalue();
+            printf("ADC value: %d\n", value);
+        }
     }
 }

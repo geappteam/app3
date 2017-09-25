@@ -12,6 +12,6 @@
 
 void setupADC();
 void startADConv();
-int readADCvalue();
+unsigned short readADCvalue();
 
 #endif /* INCLUDES_EMIFADC_H_ */

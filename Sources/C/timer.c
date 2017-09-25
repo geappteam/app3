@@ -43,7 +43,6 @@ bool configAndStartTimer(unsigned short timer, double targetFrequency){
     // Set the desired timer frequency (10khz)
     *prd = (unsigned int)((CLK_SRC / 4) / (2 * targetFrequency));
 
-
     // CLT Settings:
     //    SPND = 1 : Timer stops on emulation halt
     //    Reserved 3x

@@ -23,29 +23,34 @@ void setupADC(){
     // resulting in a 11.1 ns period
 
     // Write setup time -> no time required
-    cectlSettings |= 1 << WRSETUP;
+    cectlSettings |= 0 << WRSETUP;
     // Write strobe time >= 50ns -> minimum 6 clock cycles
-    cectlSettings |= 6 << WRSTRB;
+    cectlSettings |= 5 << WRSTRB;
     // Write hold time -> no time requires
-    cectlSettings |= 1 << WRHLD;
+    cectlSettings |= 0 << WRHLD;
 
     // Write setup time -> no time required
-    cectlSettings |= 1 << RDSETUP;
+    cectlSettings |= 10 << RDSETUP;
     // Write strobe time >= 50ns -> minimum 6 clock cycles
-    cectlSettings |= 6 << RDSTRB;
+    cectlSettings |= 5 << RDSTRB;
     // Write hold time >= 30 ns -> minimum of 4 clock cycles
-    cectlSettings |= 4 << RDHLD;
+    cectlSettings |= 3 << RDHLD;
 
     // Applying settings
     CECTL3 = cectlSettings;
 }
 
 void startADConv(){
+    // Reading the ADC to clear any previously started reading
     // Writing to the EMIF starts the conversion
-    TLC1550 = 0;
+    TLC1550 = TLC1550 + 0;
 }
 
-int readADCvalue(){
-
-    return TLC1550;
+unsigned short readADCvalue(){
+    // Eliminating the 6 MSB as per 10 bit ADC
+    unsigned int data;
+    data = TLC1550;
+    data = data << 22;
+    data = data >> 22;
+    return data;
 }
