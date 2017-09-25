@@ -23,3 +23,4 @@ interrupt void endOfConv(){
 interrupt void timerIsr1(){
     timer1Flag = true;
 }
+

@@ -12,8 +12,8 @@
    .global _vector9	  
    .global _vector10 
    .global _codec_int
-   .global _vector12  
-   .global _vector13   
+   .global _vector12
+   .global _vector13
    .global _vector14
    .global _timerIsr1
 
