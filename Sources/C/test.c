@@ -104,3 +104,32 @@ void testADC(){
         }
     }
 }
+
+void testMicroToDacIntegration(){
+
+    enableInterrupts();
+    setExternalInterrupt(4, FALLING);
+    setupADC();
+    setSampleFrequencyKHz(8);
+    startCodec();
+
+
+
+    while (true){
+
+        // Timer 1
+        if (codecFlag){
+            codecFlag = false;
+
+            startADConv();
+        }
+
+        // End of conversion
+        if (eocFlag){
+            eocFlag = false;
+
+            float voltage = readADCVolatge();
+            dacOutput(voltage, ALL);
+        }
+    }
+}

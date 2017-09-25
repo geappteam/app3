@@ -21,5 +21,5 @@ void testSDRAM();
 void testADC();
 
 //APP features integration test
-void testIntegrationADCSDRAMDAC();
+void testMicroToDacIntegration();
 #endif /* INCLUDES_TEST_H_ */

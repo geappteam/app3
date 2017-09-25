@@ -17,8 +17,9 @@ double SIN_FREQUENCY = 500.0;
 const double PI = 3.14159265;
 
 main(void){
-    process();
+   // process();
 
+   //testMicroToDacIntegration();
    //testSDRAM();
-   //testADC();
+   testADC();
 }

@@ -18,24 +18,24 @@ void setupADC(){
     unsigned int cectlSettings = 0;
 
     // using the EMIF as a 16 bit asynchronus interface
-    cectlSettings |= ASYNC32 << MTYPE;
+    cectlSettings |= ASYNC16 << MTYPE;
 
     // The EMIF clock frequency is running at 90MHz
     // resulting in a 11.1 ns period
 
     // Write setup time -> no time required
-    cectlSettings |= 0 << WRSETUP;
+    cectlSettings |= 1 << WRSETUP;
     // Write strobe time >= 50ns -> minimum 6 clock cycles
-    cectlSettings |= 5 << WRSTRB;
+    cectlSettings |= 6 << WRSTRB;
     // Write hold time -> no time requires
-    cectlSettings |= 0 << WRHLD;
+    cectlSettings |= 1 << WRHLD;
 
     // Write setup time -> no time required
-    cectlSettings |= 10 << RDSETUP;
+    cectlSettings |= 1 << RDSETUP;
     // Write strobe time >= 50ns -> minimum 6 clock cycles
-    cectlSettings |= 5 << RDSTRB;
+    cectlSettings |= 6 << RDSTRB;
     // Write hold time >= 30 ns -> minimum of 4 clock cycles
-    cectlSettings |= 3 << RDHLD;
+    cectlSettings |= 4 << RDHLD;
 
     // Applying settings
     CECTL3 = cectlSettings;
@@ -54,4 +54,11 @@ unsigned short readADCvalue(){
     data = data << 22;
     data = data >> 22;
     return data;
+}
+
+float readADCVolatge(){
+    int data = readADCvalue();
+
+    data -= MID_VALUE;
+    return ((float)data/MAX_VALUE)*VREF;
 }
