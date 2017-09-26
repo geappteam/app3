@@ -15,7 +15,19 @@
 #include "emifADC.h"
 #include "SDRAM.h"
 
-enum { RECORD = 0, PLAY = 1 };
+enum { NO_FEATURES = -1, RECORD = 0, PLAY = 1 , TUNE_DOWN = 2 , TUNE_UP = 3};
+enum {  GAIN_0 = 0,
+        GAIN_1 = 1,
+        GAIN_4 = 4,
+        GAIN_8 = 8,
+        GAIN_12 = 12,
+        GAIN_16 = 16,
+        GAIN_20 = 20,
+        GAIN_24 = 24,
+        GAIN_28 = 28,
+        GAIN_32 = 32,
+        GAIN_36 = 36,
+        GAIN_40 = 40};
 
 //Global interrupt flags for program's process
 extern volatile bool timer1Flag;
@@ -25,13 +37,22 @@ extern volatile bool eocFlag;
 //Global program process flags
 bool isRecording = false;
 bool isPlaying = false;
+bool isTuningUp = false;
+bool isTuningDown = false;
 
 //Global counters
 int timer1counter = 0;
 
+//Global process variables
+unsigned short volumeScaler = 5; //5 is the normal tune for the volume
+
 //Sound Recorder function prototypes
 void record();
 void play();
+void tuneDown();
+void tuneUp();
+void resetTuningFlags();
+unsigned short getGain();
 
 main(void){
 
@@ -52,7 +73,7 @@ main(void){
         else if(isPlaying)
             feature = 1;
         else
-            feature = readDIPS();
+            feature = readDipsProcess();
 
         switch(feature){
             case RECORD:
@@ -111,7 +132,20 @@ void play(){
 
     if(codecFlag && isPlaying && !(getSDRAMAddressIt() > getEndOfLastRecordingAddress())){
         codecFlag = false;
-        dacOutput(convertADCDataToVoltage(processReadingInSDRAM()), ALL);
+
+        if((readDipsVolume() == TUNE_DOWN) && !isTuningDown){
+            isTuningDown = true;
+            tuneDown();
+        }
+        else if((readDipsVolume() == TUNE_UP) && !isTuningUp){
+            isTuningUp = true;
+            tuneUp();
+        }
+
+        if(readDipsVolume() == NO_FEATURES)
+            resetTuningFlags();
+
+        dacOutput(convertADCDataToVoltage(processReadingInSDRAM()), ALL, getGain());
     }
     else if(getSDRAMAddressIt() > getEndOfLastRecordingAddress())
     {
@@ -122,3 +156,65 @@ void play(){
     }
 }
 
+void tuneDown(){
+    if(volumeScaler != 0){
+        --volumeScaler;
+        printf("\nTUNE DOWN\n\n");
+    }
+}
+
+void tuneUp(){
+    if(volumeScaler != 10){
+        ++volumeScaler;
+        printf("\nTUNE UP\n\n");
+    }
+}
+
+void resetTuningFlags(){
+    isTuningUp = false;
+    isTuningDown = false;
+}
+
+unsigned short getGain(){
+
+    unsigned short gain = GAIN_1;
+
+    switch(volumeScaler){
+        case 0:
+            gain = GAIN_0;
+            break;
+        case 1:
+            gain = GAIN_4;
+            break;
+        case 2:
+            gain = GAIN_8;
+            break;
+        case 3:
+            gain = GAIN_12;
+            break;
+        case 4:
+            gain = GAIN_16;
+            break;
+        case 5:
+            gain = GAIN_20;
+            break;
+        case 6:
+            gain = GAIN_24;
+            break;
+        case 7:
+            gain = GAIN_28;
+            break;
+        case 8:
+            gain = GAIN_32;
+            break;
+        case 9:
+            gain = GAIN_36;
+            break;
+        case 10:
+            gain = GAIN_40;
+            break;
+    }
+
+    return gain;
+
+}

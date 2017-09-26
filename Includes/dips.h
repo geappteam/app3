@@ -10,6 +10,8 @@
 #ifndef INCLUDES_DIPS_H_
 #define INCLUDES_DIPS_H_
 
-int readDIPS();
+int readDipsProcess();
+
+int readDipsVolume();
 
 #endif /* INCLUDES_DIPS_H_ */

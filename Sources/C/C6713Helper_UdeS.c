@@ -4,7 +4,7 @@
 #include "C6713Helper_UdeS.h"
 
 extern far void vectors(); //external function
-extern Uint16 inputsource; //= DSK6713_AIC23_INPUT_LINE;
+//extern Uint16 inputsource; //= DSK6713_AIC23_INPUT_LINE;
 extern Uint32 fs;          //= DSK6713_AIC23_FREQ_48KHZ;   //set sampling rate
 
 #define using_bios

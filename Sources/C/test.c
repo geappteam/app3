@@ -119,7 +119,7 @@ void testMicroToDacIntegration(){
             eocFlag = false;
 
             float voltage = readADCVoltage();
-            dacOutput(voltage, ALL);
+            dacOutput(voltage, ALL , getGain());
         }
     }
 }

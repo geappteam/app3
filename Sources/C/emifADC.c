@@ -18,7 +18,7 @@ void setupADC(){
     unsigned int cectlSettings = 0;
 
     // using the EMIF as a 16 bit asynchronus interface
-    cectlSettings |= ASYNC16 << MTYPE;
+    cectlSettings |= ASYNC32 << MTYPE;
 
     // The EMIF clock frequency is running at 90MHz
     // resulting in a 11.1 ns period

@@ -9,15 +9,15 @@
 
 unsigned int fs = DSK6713_AIC23_FREQ_44KHZ;
 
-const double VOLT_2_DAC_VALUE = 24000.0;
+const double GAIN_ADJUSTMENT = 800.0;
 
 void startCodec(){
     comm_intr();
 }
 
-void dacOutput(double voltage, audioChannel channel){
+void dacOutput(double voltage, audioChannel channel, unsigned short gain){
 
-    unsigned short outputValue = (short)(voltage * VOLT_2_DAC_VALUE);
+    unsigned short outputValue = ((short)(voltage * GAIN_ADJUSTMENT))*gain;
 
     if (channel == ALL){
         int val =  outputValue | (outputValue  << 16);

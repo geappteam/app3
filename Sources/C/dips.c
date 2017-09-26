@@ -7,7 +7,7 @@
 
 #include "dips.h"
 
-int readDIPS(){
+int readDipsProcess(){
 
     //Check if RECORD
     if(USER_REG & 0x10)
@@ -17,8 +17,22 @@ int readDIPS(){
     if(USER_REG & 0x20)
         return 1;
 
+
+
     return -1;
 }
 
+int readDipsVolume(){
+
+    //Check if VOLUME DOWN
+    if(USER_REG & 0x40)
+        return 2;
+
+    //Check if VOLUME UP
+    if(USER_REG & 0x80)
+        return 3;
+
+    return -1;
+}
 
 
