@@ -44,7 +44,7 @@
 #define CE3         *(unsigned int*) 0xB0000000
 // The first 3584 KB of CE3 are reserved for future growth
 // 3584 * 1024 = 3 670 016 = 0x380000
-#define TLC1550     *(unsigned int*) 0xB0000000
-
+#define FAULT_ADDR  *(unsigned int*) 0xB0300000
+#define TLC1550     *(unsigned int*) 0xB0380000
 
 #endif /* INCLUDES_ADDRESSES_H_ */

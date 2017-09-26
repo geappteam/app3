@@ -11,14 +11,11 @@
 #include <stdbool.h>
 #include "addresses.h"
 
-//SDRAM EMIF CE0 address iterator
-static unsigned int* sdramAddressIt = &SDRAM_BEGIN; //TODO: Verify if it needs to be static
+#define NULL 0
 
 void setSDRAMData(short digitalSoundData);
 
 short getSDRAMData();
-
-//bool clearSDRAM();
 
 bool isEndOfSDRAM();
 
@@ -26,8 +23,14 @@ void resetSDRAMIterator();
 
 void iterateSDRAM();
 
-void processSDRAM(short digitalSoundData);
+void processSavingInSDRAM(short digitalSoundData);
 
-//void processDigitalSoundPlayer(short digitalSoundData);
+short processReadingInSDRAM();
+
+void setEndOfLastRecordingAddress();
+
+unsigned int* getEndOfLastRecordingAddress();
+
+unsigned int* getSDRAMAddressIt();
 
 #endif /* INCLUDES_SDRAM_H_ */

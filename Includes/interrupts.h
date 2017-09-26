@@ -14,6 +14,8 @@
 #define ON true
 #define OFF false
 
+#define EXT_INT_PIN4 4
+
 typedef enum {RISING, FALLING, CHANGE, DISABLED} interOpt;
 
 void enableInterrupts();

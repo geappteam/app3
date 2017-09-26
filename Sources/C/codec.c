@@ -65,25 +65,25 @@ int setSampleFrequencyKHz(unsigned short freq){
     int code = 0;
 
     switch(freq){
-    case 8:
+    case FREQ_8KHZ:
         code = DSK6713_AIC23_FREQ_8KHZ;
         break;
-    case 16:
+    case FREQ_16KHZ:
         code = DSK6713_AIC23_FREQ_16KHZ;
         break;
-    case 24:
+    case FREQ_24KHZ:
         code = DSK6713_AIC23_FREQ_24KHZ;
         break;
-    case 32:
+    case FREQ_32KHZ:
         code = DSK6713_AIC23_FREQ_32KHZ;
         break;
-    case 44:
+    case FREQ_44KHZ:
         code = DSK6713_AIC23_FREQ_44KHZ;
         break;
-    case 48:
+    case FREQ_48KHZ:
         code = DSK6713_AIC23_FREQ_48KHZ;
         break;
-    case 96:
+    case FREQ_96KHZ:
         code = DSK6713_AIC23_FREQ_96KHZ;
         break;
     }

@@ -12,11 +12,12 @@
 
 #define VREF 4.096
 #define MAX_VALUE 1024.0
-#define MID_VALUE 512
+#define MID_VALUE 515
 
 void setupADC();
 void startADConv();
 unsigned short readADCvalue();
-float readADCVolatge();
+float readADCVoltage();
+double convertADCDataToVoltage(short data);
 
 #endif /* INCLUDES_EMIFADC_H_ */

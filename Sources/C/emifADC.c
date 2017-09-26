@@ -56,9 +56,15 @@ unsigned short readADCvalue(){
     return data;
 }
 
-float readADCVolatge(){
-    int data = readADCvalue();
-
+float readADCVoltage(){
+    float data = readADCvalue();
     data -= MID_VALUE;
     return ((float)data/MAX_VALUE)*VREF;
 }
+
+double convertADCDataToVoltage(short data){
+    data -= MID_VALUE;
+    return ((float)data/MAX_VALUE)*VREF;
+}
+
+

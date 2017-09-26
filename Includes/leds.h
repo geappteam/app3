@@ -14,6 +14,11 @@
 #define HIGH true
 #define LOW false
 
+#define DEL0 0
+#define DEL1 1
+#define DEL2 2
+#define DEL3 3
+
 bool setLed (unsigned short led, bool state);
 bool toggleLed(unsigned short led);
 

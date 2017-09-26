@@ -12,7 +12,11 @@
 #include "addresses.h"
 
 #define CLK_SRC 225000000
-#define TARGET_FRQ 10000
+
+#define TARGET_FRQ_8KHZ 8000
+
+#define TIMER0 0
+#define TIMER1 1
 
 void loop_waitSeconds(unsigned int delay);
 

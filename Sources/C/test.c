@@ -46,7 +46,7 @@ void testSDRAM(){
     while(it <= it_max){
         ++digitalSoundData;
 
-        processSDRAM(digitalSoundData);
+        processSavingInSDRAM(digitalSoundData);
 
         if(digitalSoundData == 0x7FFF)
             digitalSoundData = 0x0;
@@ -64,16 +64,6 @@ void testSDRAM(){
 
         ++it;
     }
-}
-
-void testIntegrationADCSDRAMDAC(){
-
-//    resetSDRAMIterator();
-//
-//    startCodec();
-//
-//    dacOutput(voltage, audioChannel channel);
-//    getSDRAMData();
 }
 
 void testADC(){
@@ -108,9 +98,9 @@ void testADC(){
 void testMicroToDacIntegration(){
 
     enableInterrupts();
-    setExternalInterrupt(4, FALLING);
+    setExternalInterrupt(EXT_INT_PIN4, FALLING);
     setupADC();
-    setSampleFrequencyKHz(8);
+    setSampleFrequencyKHz(44);
     startCodec();
 
 
@@ -128,7 +118,7 @@ void testMicroToDacIntegration(){
         if (eocFlag){
             eocFlag = false;
 
-            float voltage = readADCVolatge();
+            float voltage = readADCVoltage();
             dacOutput(voltage, ALL);
         }
     }

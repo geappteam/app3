@@ -13,6 +13,14 @@
 #define DSK6713_AIC23_INPUT_MIC 0x0015
 #define DSK6713_AIC23_INPUT_LINE 0x0011
 
+#define FREQ_8KHZ   8
+#define FREQ_16KHZ 16
+#define FREQ_24KHZ 24
+#define FREQ_32KHZ 32
+#define FREQ_44KHZ 44
+#define FREQ_48KHZ 48
+#define FREQ_96KHZ 96
+
 typedef enum{LEFT, RIGHT, ALL} audioChannel;
 
 void startCodec();
