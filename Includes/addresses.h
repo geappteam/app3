@@ -29,8 +29,8 @@
 #define MUXL        *(unsigned int*) 0x019C0004
 
 // SDRAM memory address corresponding to 0x80000000 to 0x8FFFFFFF (which is entirely the EMIF CE0 (according to DSK datasheet Ref. p. 13 of 52 PDF)
-#define SDRAM_BEGIN        *(unsigned int*) 0x80000000
-#define SDRAM_END        *(unsigned int*) 0x8FFFFFFF
+#define SDRAM_BEGIN        *(unsigned short*) 0x80000000
+#define SDRAM_END        *(unsigned short*) 0x8FFFFFFF
 
 // EMIF registers for ADC
 #define CECTL3      *(unsigned int*) 0x01800014

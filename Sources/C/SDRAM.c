@@ -8,24 +8,19 @@
 #include <SDRAM.h>
 
 //SDRAM EMIF CE0 address iterators
-unsigned int* sdramAddressIt = &SDRAM_BEGIN;
-unsigned int* lastSDRAMAddressIt = NULL;
+unsigned short* sdramAddressIt = &SDRAM_BEGIN;
+unsigned short* lastSDRAMAddressIt = NULL;
 
 void setSDRAMData(short digitalData){
-    if(isEndOfSDRAM()){
-        resetSDRAMIterator();
-        return;
-    }
+//    if(isEndOfSDRAM()){
+//        resetSDRAMIterator();
+//        return;
+//    }
 
     *sdramAddressIt = digitalData;
 }
 
 short getSDRAMData(){
-    if(isEndOfSDRAM()){
-        resetSDRAMIterator();
-        return 0;
-    }
-
     return *sdramAddressIt;
 }
 
@@ -60,10 +55,10 @@ void setEndOfLastRecordingAddress(){
     lastSDRAMAddressIt = sdramAddressIt;
 }
 
-unsigned int* getEndOfLastRecordingAddress(){
+unsigned short* getEndOfLastRecordingAddress(){
     return lastSDRAMAddressIt;
 }
 
-unsigned int* getSDRAMAddressIt(){
+unsigned short* getSDRAMAddressIt(){
     return sdramAddressIt;
 }

@@ -29,8 +29,8 @@ short processReadingInSDRAM();
 
 void setEndOfLastRecordingAddress();
 
-unsigned int* getEndOfLastRecordingAddress();
+unsigned short* getEndOfLastRecordingAddress();
 
-unsigned int* getSDRAMAddressIt();
+unsigned short* getSDRAMAddressIt();
 
 #endif /* INCLUDES_SDRAM_H_ */
