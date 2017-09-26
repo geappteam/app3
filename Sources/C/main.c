@@ -132,7 +132,6 @@ void play(){
 
     if(codecFlag && isPlaying && !(getSDRAMAddressIt() > getEndOfLastRecordingAddress())){
         codecFlag = false;
-
         if((readDipsVolume() == TUNE_DOWN) && !isTuningDown){
             isTuningDown = true;
             tuneDown();
@@ -147,6 +146,7 @@ void play(){
 
         dacOutput(convertADCDataToVoltage(processReadingInSDRAM()), ALL, getGain());
     }
+
     else if(getSDRAMAddressIt() > getEndOfLastRecordingAddress())
     {
         isPlaying = false;
@@ -159,14 +159,14 @@ void play(){
 void tuneDown(){
     if(volumeScaler != 0){
         --volumeScaler;
-        printf("\nTUNE DOWN\n\n");
+//        printf("\nTUNE DOWN\n\n");
     }
 }
 
 void tuneUp(){
     if(volumeScaler != 10){
         ++volumeScaler;
-        printf("\nTUNE UP\n\n");
+//        printf("\nTUNE UP\n\n");
     }
 }
 
