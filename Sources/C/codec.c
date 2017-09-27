@@ -1,6 +1,8 @@
 /*
  * codec.c
  *
+ * Functions used to interact with the DSK codec
+ *
  *  Created on: 23 sept. 2017
  *      Author: dene2303
  */

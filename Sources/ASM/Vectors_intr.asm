@@ -1,5 +1,5 @@
-*Vectors_intr.asm Vector file for interrupt INT11
-   .global _vectors			;global symbols
+; Interruption vectors tables
+   .global _vectors
    .global _c_int00
    .global _vector1
    .global _vector2
@@ -11,13 +11,13 @@
    .global _vector8
    .global _vector9	  
    .global _vector10 
-   .global _codec_int
+   .global _codec_int		; Codec interrupt
    .global _vector12
    .global _vector13
    .global _vector14
-   .global _timerIsr1
+   .global _timerIsr1		; Timer 1 interrupt
 
-   .ref _c_int00				;entry address
+   .ref _c_int00
 
 VEC_ENTRY .macro addr			;macro for ISR
     STW   B0,*--B15
@@ -37,9 +37,9 @@ _vec_dummy:
  .sect ".vectors"				;aligned IST section
  .align 1024
 _vectors:
-_vector0:   VEC_ENTRY _c_int00   	;RESET
-_vector1:   VEC_ENTRY _vec_dummy  	;NMI
-_vector2:   VEC_ENTRY _vec_dummy  	;RSVD
+_vector0:   VEC_ENTRY _c_int00
+_vector1:   VEC_ENTRY _vec_dummy
+_vector2:   VEC_ENTRY _vec_dummy
 _vector3:   VEC_ENTRY _vec_dummy
 _vector4:   VEC_ENTRY _endOfConv
 _vector5:   VEC_ENTRY _vec_dummy
@@ -48,7 +48,7 @@ _vector7:   VEC_ENTRY _vec_dummy
 _vector8:   VEC_ENTRY _vec_dummy
 _vector9:   VEC_ENTRY _vec_dummy
 _vector10:  VEC_ENTRY _vec_dummy
-_vector11:  VEC_ENTRY _codec_int  	;ISR address
+_vector11:  VEC_ENTRY _codec_int
 _vector12:  VEC_ENTRY _vec_dummy
 _vector13:  VEC_ENTRY _vec_dummy
 _vector14:  VEC_ENTRY _vec_dummy

@@ -1,6 +1,8 @@
 /*
  * test.c
  *
+ *  Unit and integration tests to validate development
+ *
  *  Created on: 21 sept. 2017
  *      Author: dene2303
  */
@@ -13,27 +15,6 @@
 extern volatile bool timer1Flag;
 extern volatile bool codecFlag;
 extern volatile bool eocFlag;
-
-
-bool testNo3Labo(){
-
-    enableInterrupts();
-
-    return setExternalInterrupt(4, RISING);
-}
-
-bool testNo4Labo(){
-
-    configAndStartTimer(1, 500 * 8);
-    enableInterrupts();
-    setExternalInterrupt(5, RISING);
-
-    //MUXH = 0b100000100000010110001000011;
-    //if(testNo4LaboStarted)
-
-
-    return true;
-}
 
 void testSDRAM(){
 
@@ -61,7 +42,6 @@ void testSDRAM(){
 
     while(it <= it_max){
         printf("\nValue : %d\tAddress : %x\n",getSDRAMData(), it);
-
         ++it;
     }
 }
@@ -73,7 +53,6 @@ void testADC(){
     setExternalInterrupt(4, FALLING);
     configAndStartTimer(1, 1.0);
     setupADC();
-
 
     while (true){
 
@@ -103,8 +82,6 @@ void testMicroToDacIntegration(){
     setSampleFrequencyKHz(44);
     startCodec();
 
-
-
     while (true){
 
         // Timer 1
@@ -119,7 +96,7 @@ void testMicroToDacIntegration(){
             eocFlag = false;
 
             float voltage = readADCVoltage();
-            dacOutput(voltage, ALL , getGain());
+            dacOutput(voltage, ALL , 1);
         }
     }
 }

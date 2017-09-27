@@ -11,7 +11,6 @@
 #define INCLUDES_DIPS_H_
 
 int readDipsProcess();
-
 int readDipsVolume();
 
 #endif /* INCLUDES_DIPS_H_ */

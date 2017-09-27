@@ -66,12 +66,12 @@ main(void){
     configAndStartTimer(TIMER1, TARGET_FRQ_8KHZ);
 
     while(1){
-        int feature = -1; //No feature select
+        int feature = NO_FEATURES; //No feature select
 
         if(isRecording)
-            feature = 0;
+            feature = RECORD;
         else if(isPlaying)
-            feature = 1;
+            feature = PLAY;
         else
             feature = readDipsProcess();
 
@@ -130,7 +130,13 @@ void play(){
         printf("\nIterator : %x End address : %x \n\n",getSDRAMAddressIt(), getEndOfLastRecordingAddress());
     }
 
-    if(codecFlag && isPlaying && !(getSDRAMAddressIt() > getEndOfLastRecordingAddress())){
+    if (getSDRAMAddressIt() > getEndOfLastRecordingAddress()){
+        isPlaying = false;
+        setLed(DEL1, LOW);
+        printf("\nIterator : %x End address : %x \n\n",getSDRAMAddressIt(), getEndOfLastRecordingAddress());
+        printf("\nEND PLAYING\n\n");
+    }
+    else if(codecFlag && isPlaying){
         codecFlag = false;
         if((readDipsVolume() == TUNE_DOWN) && !isTuningDown){
             isTuningDown = true;
@@ -146,27 +152,17 @@ void play(){
 
         dacOutput(convertADCDataToVoltage(processReadingInSDRAM()), ALL, getGain());
     }
-
-    else if(getSDRAMAddressIt() > getEndOfLastRecordingAddress())
-    {
-        isPlaying = false;
-        setLed(DEL1, LOW);
-        printf("\nIterator : %x End address : %x \n\n",getSDRAMAddressIt(), getEndOfLastRecordingAddress());
-        printf("\nEND PLAYING\n\n");
-    }
 }
 
 void tuneDown(){
-    if(volumeScaler != 0){
+    if(volumeScaler <= 0){
         --volumeScaler;
-//        printf("\nTUNE DOWN\n\n");
     }
 }
 
 void tuneUp(){
-    if(volumeScaler != 10){
+    if(volumeScaler >= 10){
         ++volumeScaler;
-//        printf("\nTUNE UP\n\n");
     }
 }
 
@@ -216,5 +212,4 @@ unsigned short getGain(){
     }
 
     return gain;
-
 }

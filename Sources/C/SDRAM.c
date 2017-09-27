@@ -1,6 +1,8 @@
 /*
  * SDRAM.c
  *
+ *  Functions to naviate through the SDRAM available on the DSK
+ *
  *  Created on: 23 sept. 2017
  *      Author: para2709
  */
@@ -12,11 +14,6 @@ unsigned short* sdramAddressIt = &SDRAM_BEGIN;
 unsigned short* lastSDRAMAddressIt = NULL;
 
 void setSDRAMData(short digitalData){
-//    if(isEndOfSDRAM()){
-//        resetSDRAMIterator();
-//        return;
-//    }
-
     *sdramAddressIt = digitalData;
 }
 

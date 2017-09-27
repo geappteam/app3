@@ -3,11 +3,10 @@
  * addresses.h
  *
  */
+//Ref. TMS320C6713B FLOATING-POINT DIGITAL SIGNAL PROCESSOR, p.19 of 154 , table 6, PDF
 
 #ifndef INCLUDES_ADDRESSES_H_
 #define INCLUDES_ADDRESSES_H_
-
-#define USER_REG    *(unsigned int*) 0x90080000
 
 // Timer config registers
 #define CTL0        *(unsigned int*) 0x01940000
@@ -17,10 +16,8 @@
 #define PRD0        *(unsigned int*) 0x01940004
 #define PRD1        *(unsigned int*) 0x01980004
 
-
-
-#define EXT_INT4_EXT_INT7 *(unsigned int*) 0x019C0008 //Ref. TMS320C6713B FLOATING-POINT DIGITAL SIGNAL PROCESSOR, p.19 of 154 , table 6, PDF
-
+// GPIO registers
+#define USER_REG    *(unsigned int*) 0x90080000
 #define GPEN        *(unsigned int*) 0x01B00000
 #define GPDIR       *(unsigned int*) 0x01B00004
 #define GPPOL       *(unsigned int*) 0x01B00024

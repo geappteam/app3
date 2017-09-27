@@ -1,6 +1,8 @@
 /*
  * timer.c
  *
+ * Basic functions to to configure timers
+ *
  *  Created on: 20 sept. 2017
  *      Author: para2709
  */
@@ -21,7 +23,7 @@ bool configAndStartTimer(unsigned short timer, double targetFrequency){
     unsigned int* ctl;
     unsigned int* prd;
 
-    if (timer > 1 || targetFrequency < 0.0)
+    if (targetFrequency < 0.0)
         return false;
 
     switch (timer){

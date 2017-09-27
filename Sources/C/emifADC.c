@@ -17,7 +17,7 @@
 void setupADC(){
     unsigned int cectlSettings = 0;
 
-    // using the EMIF as a 16 bit asynchronus interface
+    // using the EMIF as a 32 bit asynchronus interface
     cectlSettings |= ASYNC32 << MTYPE;
 
     // The EMIF clock frequency is running at 90MHz
@@ -66,5 +66,3 @@ double convertADCDataToVoltage(short data){
     data -= MID_VALUE;
     return ((float)data/MAX_VALUE)*VREF;
 }
-
-

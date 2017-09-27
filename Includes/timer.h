@@ -19,7 +19,6 @@
 #define TIMER1 1
 
 void loop_waitSeconds(unsigned int delay);
-
 bool configAndStartTimer(unsigned short timer, double targetFrequency);
 
 #endif /* INCLUDES_TIMER_H_ */

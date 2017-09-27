@@ -10,9 +10,6 @@
 
 #include "C6713Helper_UdeS.h"
 
-#define DSK6713_AIC23_INPUT_MIC 0x0015
-#define DSK6713_AIC23_INPUT_LINE 0x0011
-
 #define FREQ_8KHZ   8
 #define FREQ_16KHZ 16
 #define FREQ_24KHZ 24

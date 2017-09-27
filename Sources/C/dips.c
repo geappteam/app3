@@ -1,6 +1,8 @@
 /*
  * dips.c
  *
+ * Functions used to interact with the DIP switches at the back of the DSK
+ *
  *  Created on: 24 sept. 2017
  *      Author: para2709
  */
@@ -16,8 +18,6 @@ int readDipsProcess(){
     //Check if PLAY
     if(USER_REG & 0x20)
         return 1;
-
-
 
     return -1;
 }
